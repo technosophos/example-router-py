@@ -1,0 +1,17 @@
+spin_manifest_version = 2
+
+[application]
+authors = ["Matt Butcher <matt.butcher@fermyon.com>"]
+description = "Example of doing routing within a Python Spin app"
+name = "router-example"
+version = "0.1.0"
+
+[[trigger.http]]
+route = "/..."
+component = "router-example"
+
+[component.router-example]
+source = "app.wasm"
+[component.router-example.build]
+command = "spin py2wasm app -o app.wasm"
+watch = ["app.py", "Pipfile"]
